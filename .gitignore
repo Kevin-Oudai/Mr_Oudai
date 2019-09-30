@@ -1,0 +1,4 @@
+mroudai/mroudai/settings.py
+*.pyc
+*.sqlite3
+mroudai/static/admin/*

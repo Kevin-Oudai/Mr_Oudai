@@ -1,2 +1,6 @@
 # Mr_Oudai
-This contains all resources and notes used by me to teach Mathematics, Additional Mathematics, Physics and Information Technology. The content is relevant to the Caribbean Secondary Education Certificate (CSEC) examinations. 
+This is the source code for the website containing information about my tutoring services. You can click the link to the site called [Mr. Oudai](https://www.mroudai.pythonanywhere.com). This site will be a work in progress and any errors or issues you have while using the site can be stated here.
+
+## Current Site Features
+
+  * Contains information about Kevin Oudai.
