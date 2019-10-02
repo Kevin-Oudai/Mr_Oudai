@@ -71,3 +71,15 @@ body {
 .z-depth-5 {
     box-shadow: 0 16px 24px 2px rgba(224, 222, 222, 0.336), 0 6px 30px 5px rgba(224, 222, 222, 0.336), 0 8px 10px -5px rgba(224, 222, 222, 0.336);
 }
+
+.bio-box {
+    overflow-y: scroll;
+    height: 220px;
+    padding: 1rem
+}
+
+.modal {
+    width: 90% !important;
+    height: 100% !important;
+    border: none;
+}

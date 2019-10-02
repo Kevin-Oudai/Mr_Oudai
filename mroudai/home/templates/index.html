@@ -28,11 +28,26 @@
       </div>
       <div class="card-stacked">
         <div class="card-content">
-          <p class='black-text'>I am a very simple card. I am good at containing small bits of information.</p>
+        <div class="scroll-box">
+          <p class='bio-box black-text'>
+            Teaching was never a goal for myself. However, after I started in 2010 I found myself liking it more 
+            everytime I taught. I taught several students in both class environments and one on one settings. 
+            I discovered that I like when my students tell me I made something they thought was difficult very 
+            easy. I also discovered that teaching has solidified my foundations and made it possible for me to self
+            learn many skills I currently use today. Because of these reasons I have refined my teaching methods to
+            show students how to properly link lessons together and how these lessons can be applied to the real world.
+          </p>
+          </div>
         </div>
         <div class="card-action">
-          <a href="#">View Certificates</a>
-          {% comment %} i would like to add a modal here which shows all my certifications. {% endcomment %}
+        <div class="row">
+            <a class="modal-trigger" href="#modal1">Resume</a>
+            <div id="modal1" class="modal">
+              <div class="modal-content">
+                <img src="{% static 'site/img/Resume.jpg' %}" width="100%" height="100%">
+              </div>
+            </div>
+        </div>
         </div>
       </div>
     </div>
@@ -40,6 +55,15 @@
       </div>
     </div>
     <div class="parallax"><img src="{% static 'site/img/background1.jpg' %}" alt="Unsplashed background img 1"></div>
+  </div>
+
+
+{% comment %} modal information {% endcomment %}
+<div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
   </div>
 
 
@@ -199,6 +223,7 @@
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="{% static 'site/js/materialize.js' %}"></script>
   <script src="{% static 'site/js/init.js' %}"></script>
+  <script src="{% static 'site/js/custom.js' %}"></script>
 
   </body>
 </html>
