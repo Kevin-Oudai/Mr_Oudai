@@ -3,4 +3,5 @@ This is the source code for the website containing information about my tutoring
 
 ## Current Site Status
 
-  * Site structure is up and configured. (29th Sept 2019)
+  * Site structure is up and configured. (29th Sept. 2019)
+  * Added the bio, evaluation explanation, offered subjects and cost. (3rd Oct. 2019)
