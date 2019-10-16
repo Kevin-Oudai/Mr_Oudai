@@ -6,7 +6,7 @@ class HomeView(CreateView):
     template_name = 'index.html'
     model = ContactMe
     fields = "__all__"
-    success_url = ''
+    success_url = '/'
 
     def form_valid(self, form):
         name = form.instance.name
@@ -14,7 +14,7 @@ class HomeView(CreateView):
         phone = form.instance.phone
         subject = form.instance.subject
         message = form.instance.message
-        content = ("Name: {}\nPhone: {}\nMessage: {}.".format(name, phone, message))
+        content = ("Name: {}\nEmail: {}\nPhone: {}\nMessage: {}.".format(name, email, phone, message))
         send_mail(
             subject,
             content,

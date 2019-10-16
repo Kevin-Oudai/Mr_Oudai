@@ -8,8 +8,7 @@ class ContactMe(models.Model):
     subject = models.CharField(max_length=120, null=True)
     message = models.TextField(null=True)
 
-    def get_absolute_url(self):
-        return reverse("home")
+    
     
 
     
