@@ -1,4 +1,4 @@
-# Mr_Oudai
+# Mr. Kevin Oudai
 This is the source code for the website containing information about my tutoring services. You can click the link to the site called [Mr. Oudai](http://mroudai.pythonanywhere.com/). This site will be a work in progress and any errors or issues you have while using the site can be stated here.
 
 ## Current Site Status
@@ -9,4 +9,5 @@ This is the source code for the website containing information about my tutoring
   * Configured the static files for the site (15th Oct. 2019)
   * Added setting to remove security warnings. (16th Oct. 2019)
   * Edited the message format for the contact form. (11th Nov. 2019)
+  * Fixed the 500 server error. (11th Nov. 2019)
  
