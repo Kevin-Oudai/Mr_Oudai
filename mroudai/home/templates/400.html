@@ -1,5 +1,12 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-    <h1> This is the 400 page. </h1>
+    <div class="row">
+        <div class="col s12 m6 offset-m3">
+          <div class="card-panel">
+              <h1> Error 400: Bad Request </h1>
+              <p> The request you sent to the website server was somehow incorrect or corrupted and the server couldn't understand it.</p>
+          </div>
+        </div>
+      </div>
 {% endblock content %}

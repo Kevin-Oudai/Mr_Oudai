@@ -6,7 +6,6 @@ class HomeView(CreateView):
     template_name = 'index.html'
     model = ContactMe
     fields = "__all__"
-    success_url = '/'
 
     def form_valid(self, form):
         name = form.instance.name
