@@ -15,7 +15,7 @@
 <body>
  <nav>
     <div class="teal nav-wrapper">
-	  <a href="{% url 'home:home' %}" class="brand-logo center white-text"><i class="material-icons large">home</i> Kevin Oudai</a>
+	  <a href="{% url 'home:home' %}" class="brand-logo center white-text"><i class="material-icons large">home</i>Welcome, {{user.first_name}} {{user.last_name}}</a>
 	  <ul id="nav-mobile" class="right hide-on-med-and-down">
 			{% if user.is_authenticated and user.is_staff %}
 			<li><a class="white-text" href="{% url 'admin:index' %}">Admin Page</a></li>
