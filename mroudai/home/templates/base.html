@@ -1,75 +1,93 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Mr. Oudai - Home</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Mr. Oudai - Home</title>
 
-  <!-- CSS  -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="{% static 'site/css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="{% static 'site/css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="https://fonts.googleapis.com/css?family=Noto+Serif&display=swap" rel="stylesheet">
+	<!-- CSS  -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="{% static 'site/css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection" />
+	<link href="{% static 'site/css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection" />
+	<link href="https://fonts.googleapis.com/css?family=Noto+Serif&display=swap" rel="stylesheet">
 </head>
-<body>
- <nav>
-    <div class="teal nav-wrapper">
-	  <a href="{% url 'home:home' %}" class="brand-logo center white-text"><i class="material-icons large">home</i>Welcome, {{user.first_name}} {{user.last_name}}</a>
-	  <ul id="nav-mobile" class="right hide-on-med-and-down">
-			{% if user.is_authenticated and user.is_staff %}
-			<li><a class="white-text" href="{% url 'admin:index' %}">Admin Page</a></li>
-			<li><a class="white-text" href="{% url 'account_logout' %}">Logout</a></li>
-			{% elif user.is_authenticated %}
-			<li><a class="white-text" href="{% url 'account_logout' %}">Logout</a></li>
-			{% else %}
-			<li><a class="white-text" href="{% url 'account_login' %}">Login</a></li>
-			<li><a class="white-text" href="{% url 'account_signup' %}">Sign up</a></li>
-			{% endif %}
-		</ul>
-    </div>
-  </nav>
-{% block content %}
 
-{% endblock content %}
-   <footer class="page-footer teal">
-    <div class="container">
-      <div class="row">
-            <div class="col l4 s12 offset-l4">
-          <h5 class="white-text">Connect</h5>
-          <ul class="row">
-             {% comment %} <li class="col s3">
-             <a href="https://www.facebook.com/kevinoudai2017/" target="_blank"><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                        	 width="49.652px" height="49.652px" viewBox="0 0 49.652 49.652" style="fill:white;enable-background:new 0 0 49.652 49.652;"
-                        	 xml:space="preserve">
-                        <g>
-                        	<g>
-                        		<path d="M24.826,0C11.137,0,0,11.137,0,24.826c0,13.688,11.137,24.826,24.826,24.826c13.688,0,24.826-11.138,24.826-24.826
-                        			C49.652,11.137,38.516,0,24.826,0z M31,25.7h-4.039c0,6.453,0,14.396,0,14.396h-5.985c0,0,0-7.866,0-14.396h-2.845v-5.088h2.845
-                        			v-3.291c0-2.357,1.12-6.04,6.04-6.04l4.435,0.017v4.939c0,0-2.695,0-3.219,0c-0.524,0-1.269,0.262-1.269,1.386v2.99h4.56L31,25.7z
-                        			"/>
-                        	</g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
-                        </svg></a></li> {% endcomment %}
-                        <li class="col s3"><a href="https://www.linkedin.com/in/kevin-oudai-973a49150/" target="_blank"><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                        	 width="49.652px" height="49.652px" viewBox="0 0 486.392 486.392" style="fill:white;enable-background:new 0 0 486.392 486.392;" xml:space="preserve">
-                        <g>
-                        	<g>
-                        		<g>
-                        			<path d="M243.196,0C108.891,0,0,108.891,0,243.196s108.891,243.196,243.196,243.196
+<body>
+	<nav>
+		<div class="teal nav-wrapper">
+			{% if user.is_authenticated %}
+			<a href="{% url 'home:home' %}" class="brand-logo center white-text"><i
+					class="material-icons large">home</i>Welcome, {{user.first_name}} {{user.last_name}}</a>
+					
+			{% else %}
+			<a href="{% url 'home:home' %}" class="brand-logo center white-text"><i
+					class="material-icons large">home</i>Mr. Oudai Tutoring Service</a>
+			{% endif %}
+			<a href="#" data-target="mobile-demo" class="sidenav-trigger white-text"><i class="material-icons">menu</i></a>
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+				{% if user.is_authenticated and user.is_staff %}
+				<li><a class="white-text" href="{% url 'admin:index' %}">Admin Page</a></li>
+				<li><a class="white-text" href="{% url 'account_logout' %}">Logout</a></li>
+				{% elif user.is_authenticated %}
+				<li><a class="white-text" href="{% url 'account_logout' %}">Logout</a></li>
+				{% else %}
+				<li><a class="white-text" href="{% url 'account_login' %}">Login</a></li>
+				<li><a class="white-text" href="{% url 'account_signup' %}">Sign up</a></li>
+				{% endif %}
+			</ul>
+		</div>
+	</nav>
+	<ul class="sidenav" id="mobile-demo">
+			{% if user.is_authenticated and user.is_staff %}
+			<li><a href="{% url 'admin:index' %}">Admin Page</a></li>
+			<li><a href="{% url 'account_logout' %}">Logout</a></li>
+			{% elif user.is_authenticated %}
+			<li><a href="{% url 'account_logout' %}">Logout</a></li>
+			{% else %}
+			<li><a href="{% url 'account_login' %}">Login</a></li>
+			<li><a href="{% url 'account_signup' %}">Sign up</a></li>
+			{% endif %}
+	</ul>
+	{% block content %}
+
+	{% endblock content %}
+	<footer class="page-footer teal">
+		<div class="container">
+			<div class="row">
+				<div class="col l4 s12 offset-l4">
+					<h5 class="white-text">Connect</h5>
+					<ul class="row">
+						<li class="col s3"><a href="https://www.linkedin.com/in/kevin-oudai-973a49150/"
+								target="_blank"><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+									xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="49.652px"
+									height="49.652px" viewBox="0 0 486.392 486.392"
+									style="fill:white;enable-background:new 0 0 486.392 486.392;" xml:space="preserve">
+									<g>
+										<g>
+											<g>
+												<path d="M243.196,0C108.891,0,0,108.891,0,243.196s108.891,243.196,243.196,243.196
                         				s243.196-108.891,243.196-243.196C486.392,108.861,377.501,0,243.196,0z M182.397,360.994h-60.799V148.197h60.799V360.994z
                         				 M153.882,135.156c-15.747,0-28.484-12.768-28.484-28.515s12.768-28.515,28.484-28.515c15.747,0.03,28.515,12.798,28.515,28.515
                         				C182.397,122.388,169.629,135.156,153.882,135.156z M395.193,360.994h-60.799V229.425c0-15.413-4.408-26.204-23.347-26.204
                         				c-31.403,0-37.452,26.204-37.452,26.204v131.569h-60.799V148.197h60.799v20.337c8.694-6.657,30.399-20.307,60.799-20.307
-                        				c19.699,0,60.799,11.795,60.799,83.051V360.994z"/>
-                        		</g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></g><g></g><g>
-                        </g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
-                        </svg>
-                        </a>
-                        </li>
-                        <li class="col s3"><a href="https://api.whatsapp.com/send?phone=18683320629&text=Hi, I found your contact info on your website." target="_blank"><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                        	 width="49.652px" height="49.652px" viewBox="0 0 90 90" style="fill:white;enable-background:new 0 0 90 90;" xml:space="preserve">
-                        <g>
-                        	<path id="WhatsApp" d="M90,43.841c0,24.213-19.779,43.841-44.182,43.841c-7.747,0-15.025-1.98-21.357-5.455L0,90l7.975-23.522
+                        				c19.699,0,60.799,11.795,60.799,83.051V360.994z" />
+											</g>
+										</g>
+									</g>
+								</svg>
+							</a>
+						</li>
+						<li class="col s3"><a
+								href="https://api.whatsapp.com/send?phone=18683320629&text=Hi, I found your contact info on your website."
+								target="_blank"><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+									xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="49.652px"
+									height="49.652px" viewBox="0 0 90 90"
+									style="fill:white;enable-background:new 0 0 90 90;" xml:space="preserve">
+									<g>
+										<path id="WhatsApp"
+											d="M90,43.841c0,24.213-19.779,43.841-44.182,43.841c-7.747,0-15.025-1.98-21.357-5.455L0,90l7.975-23.522
                         		c-4.023-6.606-6.34-14.354-6.34-22.637C1.635,19.628,21.416,0,45.818,0C70.223,0,90,19.628,90,43.841z M45.818,6.982
                         		c-20.484,0-37.146,16.535-37.146,36.859c0,8.065,2.629,15.534,7.076,21.61L11.107,79.14l14.275-4.537
                         		c5.865,3.851,12.891,6.097,20.437,6.097c20.481,0,37.146-16.533,37.146-36.857S66.301,6.982,45.818,6.982z M68.129,53.938
@@ -79,14 +97,17 @@
                         		c0.543-0.628,0.723-1.075,1.082-1.793c0.363-0.717,0.182-1.344-0.09-1.883c-0.27-0.537-2.438-5.825-3.34-7.977
                         		c-0.902-2.15-1.803-1.792-2.436-1.792c-0.631,0-1.354-0.09-2.076-0.09c-0.722,0-1.896,0.269-2.889,1.344
                         		c-0.992,1.076-3.789,3.676-3.789,8.963c0,5.288,3.879,10.397,4.422,11.113c0.541,0.716,7.49,11.92,18.5,16.223
-                        		C58.2,65.771,58.2,64.336,60.186,64.156c1.984-0.179,6.406-2.599,7.312-5.107C68.398,56.537,68.398,54.386,68.129,53.938z"/>
-                        </g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg></a></li>
+                        		C58.2,65.771,58.2,64.336,60.186,64.156c1.984-0.179,6.406-2.599,7.312-5.107C68.398,56.537,68.398,54.386,68.129,53.938z" />
+									</g>
+								</svg></a></li>
 
-                        <li class="col s3"><a href="https://github.com/Kevin-Oudai" target="_blank"><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                        	 width="49.652px" height="49.652px" viewBox="0 0 438.549 438.549" style="fill:white;enable-background:new 0 0 438.549 438.549;"
-                        	 xml:space="preserve">
-                        <g>
-                        	<path d="M409.132,114.573c-19.608-33.596-46.205-60.194-79.798-79.8C295.736,15.166,259.057,5.365,219.271,5.365
+						<li class="col s3"><a href="https://github.com/Kevin-Oudai" target="_blank"><svg version="1.1"
+									id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+									xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="49.652px"
+									height="49.652px" viewBox="0 0 438.549 438.549"
+									style="fill:white;enable-background:new 0 0 438.549 438.549;" xml:space="preserve">
+									<g>
+										<path d="M409.132,114.573c-19.608-33.596-46.205-60.194-79.798-79.8C295.736,15.166,259.057,5.365,219.271,5.365
                         		c-39.781,0-76.472,9.804-110.063,29.408c-33.596,19.605-60.192,46.204-79.8,79.8C9.803,148.168,0,184.854,0,224.63
                         		c0,47.78,13.94,90.745,41.827,128.906c27.884,38.164,63.906,64.572,108.063,79.227c5.14,0.954,8.945,0.283,11.419-1.996
                         		c2.475-2.282,3.711-5.14,3.711-8.562c0-0.571-0.049-5.708-0.144-15.417c-0.098-9.709-0.144-18.179-0.144-25.406l-6.567,1.136
@@ -105,26 +126,27 @@
                         		c-6.191,7.521-13.901,13.85-23.131,18.986c-9.232,5.14-18.182,8.85-26.84,11.136c-8.662,2.286-18.415,4.004-29.263,5.146
                         		c9.894,8.562,14.842,22.077,14.842,40.539v60.237c0,3.422,1.19,6.279,3.572,8.562c2.379,2.279,6.136,2.95,11.276,1.995
                         		c44.163-14.653,80.185-41.062,108.068-79.226c27.88-38.161,41.825-81.126,41.825-128.906
-                        		C438.536,184.851,428.728,148.168,409.132,114.573z"/>
-                        </g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
-                        </svg></a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer-copyright">
-      <div class="container">
-      &copy;Copyright {% now 'Y' %} | Made by <span class="grey-text text-lighten-1">Kevin Oudai</span>
-      </div>
-    </div>
-  </footer>
+                        		C438.536,184.851,428.728,148.168,409.132,114.573z" />
+									</g>
+								</svg></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="footer-copyright">
+			<div class="container">
+				&copy;Copyright {% now 'Y' %} | Made by <span class="grey-text text-lighten-1">Kevin Oudai</span>
+			</div>
+		</div>
+	</footer>
 
 
-  <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="{% static 'site/js/materialize.js' %}"></script>
-  <script src="{% static 'site/js/init.js' %}"></script>
-  <script src="{% static 'site/js/custom.js' %}"></script>
+	<!--  Scripts-->
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="{% static 'site/js/materialize.js' %}"></script>
+	<script src="{% static 'site/js/init.js' %}"></script>
+	<script src="{% static 'site/js/custom.js' %}"></script>
 
-  </body>
+</body>
+
 </html>
