@@ -11,4 +11,5 @@ This is the source code for the website containing information about my tutoring
   * Edited the message format for the contact form. (3rd Nov. 2019)
   * Fixed the 500 server error. (3rd Nov. 2019)
   * Added django all auth to the site. (10th Nov. 2019)
+  * Added user login functions by using django allauth. (12th Nov. 2019)
  
