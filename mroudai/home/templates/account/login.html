@@ -4,12 +4,12 @@
 
 {% block content %}
 <div class="row">
-  <div class="col s12 m6 card offset-m3 z-depth-2 hoverable">
-    <h1 class="center">{% trans "Sign In" %}</h1>
-    <p class="center">{% blocktrans %}If you have not created an account yet, then please
+  <div class="col sm-12 md-6 card offset-m3 z-depth-2 hoverable">
+    <h1 class="text-center">{% trans "Sign In" %}</h1>
+    <p class="text-center">{% blocktrans %}If you have not created an account yet, then please
       <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
 
-    <form class="col s12 m10 offset-m1" method="POST" action="{% url 'account_login' %}">
+    <form class="col sm-12 md-10 offset-m1" method="POST" action="{% url 'account_login' %}">
       {% csrf_token %}
       <div class="input-field col s12">
         {{form.login|attr:"placeholder:Username"|attr:"id:username"|attr:"type:text"|attr:"class:validate"}}
@@ -25,10 +25,10 @@
       <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
       {% endif %}
       <div class="row">
-        <button class="col s12 m3 offset-m4 btn waves-effect waves-light" type="submit">{% trans "Sign In" %}</button>
+        <button class="col sm-12 md-3 offset-m4 btn waves-effect waves-light" type="submit">{% trans "Sign In" %}</button>
       </div>
       <div class="row">
-        <a class="col center s12 m3 offset-m4" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+        <a class="col text-center sm-12 md-3 offset-m4" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
       </div>
 
     </form>
